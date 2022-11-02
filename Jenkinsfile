@@ -5,10 +5,10 @@ pipeline {
             when {
                 branch 'master'
             }
-            sh "docker build -t docker/getting-started ."
+            sh "docker-compose up -d docker/getting-started ."
 
             steps {
-                withDockerRegistry([url: "", credentialsId: "dockerbuildbot-index.docker.io"]) {
+                 {
                     sh("docker push docker/getting-started")
                 }
             }
