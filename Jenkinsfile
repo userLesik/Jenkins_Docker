@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-              sh 'docker run nginx, certbot'
+              sh 'docker run nginx'
+              sh 'docker run nginx'
             }
         }
         stage('Test') {
