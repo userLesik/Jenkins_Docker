@@ -3,11 +3,15 @@ pipeline {
     stages {
         stage('build and push') {
             when {
-                branch 'master'
+                branch 'main'
             }
-            sh "docker-compose up -d //opt/nginx-ssl"
+            sh "docker build -t docker/getting-started ."
 
-          
+            steps {
+                withDockerRegistry([url: "", credentialsId: "dockerbuildbot-index.docker.io"]) {
+                    sh("docker push docker/getting-started")
+                }
+            }
         }
     }
 }
