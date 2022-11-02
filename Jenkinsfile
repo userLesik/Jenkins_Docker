@@ -1,16 +1,20 @@
 pipeline {
-     agent any
-    stages {
-        stage('build and push') {
-            when {
-                branch 'main'
-            }
-            sh "docker build -t docker/getting-started ."
+    agent any
 
+    stages {
+        stage('Build') {
             steps {
-                withDockerRegistry([url: "", credentialsId: "dockerbuildbot-index.docker.io"]) {
-                    sh("docker push docker/getting-started")
-                }
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
