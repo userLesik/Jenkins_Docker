@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
               sh 'cd //opt/nginx-ssl/'
-              sh 'docker-compose up -d -e TAG=1'
+              sh 'docker-compose up -e TAG=1 -d'
             }
         }
         stage('Test') {
