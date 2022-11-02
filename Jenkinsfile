@@ -5,11 +5,11 @@ pipeline {
             when {
                 branch 'master'
             }
-            sh "docker-compose up -d docker/getting-started ."
+            sh "docker-compose up -d //opt/nginx-ssl"
 
             steps {
                  {
-                    sh("docker push docker/getting-started")
+                    sh("docker push //opt/nginx-ssl")
                 }
             }
         }
