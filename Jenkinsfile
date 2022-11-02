@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'cd //opt/nginx-ssl'
               sh 'docker-compose up -d'
             }
         }
